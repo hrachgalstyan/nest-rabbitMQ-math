@@ -1,0 +1,19 @@
+{
+  "name": "rabbit-math",
+  "version": "1.0.0",
+  "engines": {
+    "node": "20.6.1"
+  },
+  "scripts": {
+    "m1:preinstall": "yarn --cwd m1 && yarn --cwd m1 build",
+    "m2:preinstall": "yarn --cwd m2 && yarn --cwd m2 build",
+    "build": "yarn && concurrently \"yarn m1:preinstall\" \"yarn m2:preinstall\"",
+    "m1:start": "yarn --cwd m1 start:prod",
+    "m2:start": "yarn --cwd m2 start:prod",
+    "start": "concurrently \"yarn m1:start\" \"yarn m2:start\""
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
